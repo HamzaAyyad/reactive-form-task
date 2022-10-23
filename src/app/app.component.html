@@ -4,36 +4,36 @@
       <div class="col-md-12">
         <h4 class="display 4 form-title">Permissions</h4>
       </div>
-      <div class="col dashboard">
+      <div class="col dashboard" style="margin-top: 10px;">
         <p class="lead">Roles Definition</p>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="dashOptions" id="dashOptions1" value="option1">
-          <label class="form-check-label" for="dashOptions1">read - write</label>
+        <div class="form-check form-check-inline radio-btn" *ngFor="let perm of perms; let i = index">
+          <input type="radio" class="form-check-input" id="rolesOptions{{i}}" name="rolesOptions" value="{{perm}}"
+            (change)="onRadioSelect($event, 'Roles')">
+          <label for="rolesOptions{{i}}" class="form-check-label">{{perm}}</label>
         </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="dashOptions" id="dashOptions2" value="option2">
-          <label class="form-check-label" for="dashOptions2">read only</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="dashOptions" id="dashOptions3" value="option3">
-          <label class="form-check-label" for="dashOptions3">none</label>
-        </div>
-        <div class="col chk-box">
+        <!-- <div class="col chk-box">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
+
+          </div>
+        </div> -->
+        <div class="col chk-box" [hidden]="rolesCheck">
+          <div class="form-check">
+            <input [disabled]="rolesDisable" class="form-check-input" type="checkbox" value="Add Role" id="rolesChk1">
+            <label class="form-check-label" for="rolesChk1">
               Add Role
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
+            <input [disabled]="rolesDisable" class="form-check-input" type="checkbox" value="Update Role"
+              id="rolesChk2">
+            <label class="form-check-label" for="rolesChk2">
               Update Role
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
+            <input [disabled]="rolesDisable" class="form-check-input" type="checkbox" value="Delete Role"
+              id="rolesChk3">
+            <label class="form-check-label" for="rolesChk3">
               Delete Role
             </label>
           </div>
@@ -44,34 +44,27 @@
     <div class="row align-items-center">
       <div class="col dashboard">
         <p class="lead">User Management</p>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="dashOptions" id="dashOptions1" value="option1">
-          <label class="form-check-label" for="dashOptions1">read - write</label>
+        <div class="form-check form-check-inline radio-btn" *ngFor="let perm of perms; let i = index">
+          <input type="radio" class="form-check-input" id="userOptions{{i}}" name="userOptions" value="{{perm}}"
+            (change)="onRadioSelect($event, 'User')">
+          <label for="userOptions{{i}}" class="form-check-label">{{perm}}</label>
         </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="dashOptions" id="dashOptions2" value="option2">
-          <label class="form-check-label" for="dashOptions2">read only</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="dashOptions" id="dashOptions3" value="option3">
-          <label class="form-check-label" for="dashOptions3">none</label>
-        </div>
-        <div class="col chk-box">
+        <div class="col chk-box" [hidden]="userCheck">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
+            <input [disabled]="userDisable" class="form-check-input" type="checkbox" value="" id="userChk1">
+            <label class="form-check-label" for="userChk1">
               Add User
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
+            <input [disabled]="userDisable" class="form-check-input" type="checkbox" value="" id="userChk2">
+            <label class="form-check-label" for="userChk2">
               Update User
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
+            <input [disabled]="userDisable" class="form-check-input" type="checkbox" value="" id="userChk3">
+            <label class="form-check-label" for="userChk3">
               Delete User
             </label>
           </div>
@@ -81,36 +74,162 @@
     <hr>
     <div class="row align-items-center">
       <div class="col dashboard">
-        <p class="lead">Dashboard</p>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="dashOptions" id="dashOptions1" value="option1">
-          <label class="form-check-label" for="dashOptions1">read - write</label>
+        <p class="lead">Regional office</p>
+        <div class="form-check form-check-inline radio-btn" *ngFor="let perm of perms; let i = index">
+          <input type="radio" class="form-check-input" id="regionOptions{{i}}"
+            (change)="onRadioSelect($event, 'Region')" name="regionOptions" value="{{perm}}">
+          <label for="regionOptions{{i}}" class="form-check-label">{{perm}}</label>
         </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="dashOptions" id="dashOptions2" value="option2">
-          <label class="form-check-label" for="dashOptions2">read only</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="dashOptions" id="dashOptions3" value="option3">
-          <label class="form-check-label" for="dashOptions3">none</label>
-        </div>
-        <div class="col chk-box">
+        <div class="col chk-box" [hidden]="regionCheck">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
-              Add Role
+            <input [disabled]="regionDisable" class="form-check-input" type="checkbox" value="" id="regionChk1">
+            <label class="form-check-label" for="regionChk1">
+              Add Regional office
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
-              Update Role
+            <input [disabled]="regionDisable" class="form-check-input" type="checkbox" value="" id="regionChk2">
+            <label class="form-check-label" for="regionChk2">
+              Delete Regional office
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row align-items-center">
+      <div class="col dashboard">
+        <p class="lead">Assign tasks</p>
+        <div class="form-check form-check-inline radio-btn" *ngFor="let perm of perms; let i = index">
+          <input type="radio" class="form-check-input" id="assignOptions{{i}}" (change)="onRadioSelect($event, 'Tasks')"
+            name="assignOptions" value="{{perm}}">
+          <label for="assignOptions{{i}}" class="form-check-label">{{perm}}</label>
+        </div>
+        <div class="col chk-box" [hidden]="tasksCheck">
+          <div class="form-check">
+            <input class="form-check-input" [disabled]="tasksDisable" type="checkbox" value="" id="assignChk">
+            <label class="form-check-label" for="assignChk">
+              Assign tasks
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row align-items-center">
+      <div class="col dashboard">
+        <p class="lead">Progress</p>
+        <div class="form-check form-check-inline radio-btn" *ngFor="let perm of perms; let i = index">
+          <input type="radio" class="form-check-input" id="progressOptions{{i}}"
+            (change)="onRadioSelect($event, 'Progress')" name="progressOptions" value="{{perm}}">
+          <label for="progressOptions{{i}}" class="form-check-label">{{perm}}</label>
+        </div>
+        <div class="col chk-box" [hidden]="progressCheck">
+          <div class="form-check">
+            <input class="form-check-input" [disabled]="progressDisable" type="checkbox" value="" id="progressChk">
+            <label class="form-check-label" for="progressChk">
+              Progress
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row align-items-center">
+      <div class="col dashboard">
+        <p class="lead">Data revision</p>
+        <div class="form-check form-check-inline radio-btn" *ngFor="let perm of perms; let i = index">
+          <input type="radio" class="form-check-input" id="revisionOptions{{i}}"
+            (change)="onRadioSelect($event, 'Revision')" name="revisionOptions" value="{{perm}}">
+          <label for="revisionOptions{{i}}" class="form-check-label">{{perm}}</label>
+        </div>
+        <div class="col chk-box" [hidden]="revisionCheck">
+          <div class="form-check">
+            <input class="form-check-input" [disabled]="revisionDisable" type="checkbox" value="" id="revisionChk">
+            <label class="form-check-label" for="revisionChk">
+              Data revision
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row align-items-center">
+      <div class="col dashboard">
+        <p class="lead">Data sync log</p>
+        <div class="form-check form-check-inline radio-btn" *ngFor="let perm of perms; let i = index">
+          <input type="radio" class="form-check-input" id="syncOptions{{i}}" (change)="onRadioSelect($event, 'Sync')"
+            name="syncOptions" value="{{perm}}">
+          <label for="syncOptions{{i}}" class="form-check-label">{{perm}}</label>
+        </div>
+        <div class="col chk-box" [hidden]="syncCheck">
+          <div class="form-check">
+            <input class="form-check-input" [disabled]="syncDisable" type="checkbox" value="" id="syncChk">
+            <label class="form-check-label" for="syncChk">
+              Data sync log
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row align-items-center">
+      <div class="col dashboard">
+        <p class="lead">Tracking</p>
+        <div class="form-check form-check-inline radio-btn" *ngFor="let perm of perms; let i = index">
+          <input type="radio" class="form-check-input" id="trackingOptions{{i}}"
+            (change)="onRadioSelect($event, 'Tracking')" name="trackingOptions" value="{{perm}}">
+          <label for="trackingOptions{{i}}" class="form-check-label">{{perm}}</label>
+        </div>
+        <div class="col chk-box" [hidden]="trackingCheck">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" [disabled]="trackingDisable" value="" id="trackingChk">
+            <label class="form-check-label" for="trackingChk">
+              Tracking
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row align-items-center">
+      <div class="col dashboard">
+        <p class="lead">Password Config</p>
+        <div class="form-check form-check-inline radio-btn" *ngFor="let perm of perms; let i = index">
+          <input type="radio" class="form-check-input" id="passwordOptions{{i}}"
+            (change)="onRadioSelect($event, 'Password')" name="passwordOptions" value="{{perm}}">
+          <label for="passwordOptions{{i}}" class="form-check-label">{{perm}}</label>
+        </div>
+        <div class="col chk-box" [hidden]="passwordCheck">
+          <div class="form-check">
+            <input class="form-check-input" [disabled]="passwordDisable" type="checkbox" value="" id="passwordChk">
+            <label class="form-check-label" for="passwordChk">
+              Password Config
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row align-items-center">
+      <div class="col dashboard">
+        <p class="lead">Add new page</p>
+        <div class="form-check form-check-inline radio-btn" *ngFor="let perm of perms; let i = index">
+          <input type="radio" class="form-check-input" id="pageOptions{{i}}" (change)="onRadioSelect($event, 'Page')"
+            name="pageOptions" value="{{perm}}">
+          <label for="pageOptions{{i}}" class="form-check-label">{{perm}}</label>
+        </div>
+        <div class="col chk-box" [hidden]="pageCheck">
+          <div class="form-check">
+            <input class="form-check-input" [disabled]="pageDisable" type="checkbox" value="" id="pageChk1">
+            <label class="form-check-label" for="pageChk1">
+              Add
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
-              Delete Role
+            <input class="form-check-input" [disabled]="pageDisable" type="checkbox" value="" id="pageChk2">
+            <label class="form-check-label" for="pageChk2">
+              Update
             </label>
           </div>
         </div>

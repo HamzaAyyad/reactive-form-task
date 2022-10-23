@@ -10,10 +10,15 @@
 }
 
 .dashboard {
-    margin: 10px;
+    margin: 5px 30px;
 }
 
 .chk-box {
     margin-top: 3px;
     margin-left: 20px;
+}
+
+.radio-btn {
+    margin-top: 0px;
+    margin-right: 100px;
 }
